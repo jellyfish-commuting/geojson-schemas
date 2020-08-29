@@ -1,12 +1,12 @@
-const Ajv = require('ajv');
-const Schemas = require('./index');
+import Ajv from 'ajv';
+import { FeaturePoint, FeatureLineString } from './index';
 
 // Start tests ...
 describe('GeoJSON validation', () => {
   it('expect validate GeoJSON FeaturePoint', () => {
     // Init validator
     const ajv = new Ajv();
-    const validate = ajv.compile(Schemas.FeaturePoint);
+    const validate = ajv.compile(FeaturePoint);
 
     expect(validate({
       type: 'Feature',
@@ -23,7 +23,7 @@ describe('GeoJSON validation', () => {
   it('expect unvalidate a bad GeoJSON FeaturePoint', () => {
     // Init validator
     const ajv = new Ajv();
-    const validate = ajv.compile(Schemas.FeaturePoint);
+    const validate = ajv.compile(FeaturePoint);
 
     expect(validate({
       type: 'Feature',
@@ -38,7 +38,7 @@ describe('GeoJSON validation', () => {
   it('expect validate GeoJSON FeatureLineString', () => {
     // Init validator
     const ajv = new Ajv();
-    const validate = ajv.compile(Schemas.FeatureLineString);
+    const validate = ajv.compile(FeatureLineString);
 
     expect(validate({
       type: 'Feature',
@@ -56,7 +56,7 @@ describe('GeoJSON validation', () => {
   it('expect unvalidate a bad GeoJSON FeatureLineString', () => {
     // Init validator
     const ajv = new Ajv();
-    const validate = ajv.compile(Schemas.FeatureLineString);
+    const validate = ajv.compile(FeatureLineString);
 
     expect(validate({
       type: 'Feature',
