@@ -46,7 +46,7 @@ export const FeaturePoint = {
     geometry: Point,
     properties: { oneOf: [{ type: 'null' }, { type: 'object' }] },
   },
-  required: ['type', 'geometry', 'properties'],
+  required: ['type', 'geometry'],
 };
 
 //-------
@@ -59,5 +59,5 @@ export const FeatureLineString = {
     geometry: LineString,
     properties: { oneOf: [{ type: 'null' }, { type: 'object' }] },
   },
-  required: ['type', 'geometry', 'properties'],
+  required: ['type', 'geometry'],
 };

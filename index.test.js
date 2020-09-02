@@ -14,8 +14,43 @@ describe('GeoJSON validation', () => {
         type: 'Point',
         coordinates: [102.0, 0.5]
       },
+    })).toBe(true);
+  });
+
+  it('expect validate GeoJSON FeaturePoint', () => {
+    // Init validator
+    const ajv = new Ajv();
+    const validate = ajv.compile(FeaturePoint);
+
+    expect(validate({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [102.0, 0.5],
+      },
       properties: {
-        prop0: 'value0'
+        prop0: 'value0',
+      },
+    })).toBe(true);
+  });
+
+  it('expect validate GeoJSON FeaturePoint', () => {
+    // Init validator
+    const ajv = new Ajv();
+    const validate = ajv.compile(FeaturePoint);
+
+    expect(validate({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [102.0, 0.5],
+      },
+      properties: {
+        prop0: 'value0',
+        prop1: true,
+        prop2: {
+          dummy: 'Zzz...',
+        },
       },
     })).toBe(true);
   });
@@ -29,9 +64,37 @@ describe('GeoJSON validation', () => {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [102.0, 0.5]
+        coordinates: [102.0, 0.5],
       },
       properties: true,
+    })).toBe(false);
+  });
+
+  it('expect unvalidate a bad GeoJSON FeaturePoint', () => {
+    // Init validator
+    const ajv = new Ajv();
+    const validate = ajv.compile(FeaturePoint);
+
+    expect(validate({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: ['10', 10],
+      },
+    })).toBe(false);
+  });
+
+  it('expect unvalidate a bad GeoJSON FeaturePoint', () => {
+    // Init validator
+    const ajv = new Ajv();
+    const validate = ajv.compile(FeaturePoint);
+
+    expect(validate({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: { latitude: 10, longitude: 10 },
+      },
     })).toBe(false);
   });
 
@@ -48,7 +111,7 @@ describe('GeoJSON validation', () => {
       },
       properties: {
         prop0: 'value0',
-        prop1: 0.0
+        prop1: 0.0,
       }
     })).toBe(true);
   });
@@ -62,11 +125,11 @@ describe('GeoJSON validation', () => {
       type: 'Feature',
       geometry: {
         type: 'LineString',
-        coordinates: [102.0, 0.5]
+        coordinates: [102.0, 0.5],
       },
       properties: {
         prop0: 'value0',
-        prop1: 0.0
+        prop1: 0.0,
       }
     })).toBe(false);
   });
