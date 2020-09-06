@@ -1,5 +1,5 @@
-import Ajv from 'ajv';
-import { FeaturePoint, FeatureLineString } from './index';
+const Ajv = require('ajv');
+const { FeaturePoint, FeatureLineString } = require('./index');
 
 // Start tests ...
 describe('GeoJSON validation', () => {
