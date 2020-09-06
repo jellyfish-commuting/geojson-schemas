@@ -1,7 +1,7 @@
 //-------
 // Point
 //-------
-export const Point = {
+const Point = {
   type: 'object',
   properties: {
     type: { type: 'string', enum: ['Point'] },
@@ -18,7 +18,7 @@ export const Point = {
 //-------
 // LineString
 //-------
-export const LineString = {
+const LineString = {
   type: 'object',
   properties: {
     type: { type: 'string', enum: ['LineString'] },
@@ -39,7 +39,7 @@ export const LineString = {
 //-------
 // Feature Point
 //-------
-export const FeaturePoint = {
+const FeaturePoint = {
   type: 'object',
   properties: {
     type: { type: 'string', enum: ['Feature'] },
@@ -52,7 +52,7 @@ export const FeaturePoint = {
 //-------
 // Feature
 //-------
-export const FeatureLineString = {
+const FeatureLineString = {
   type: 'object',
   properties: {
     type: { type: 'string', enum: ['Feature'] },
@@ -60,4 +60,14 @@ export const FeatureLineString = {
     properties: { oneOf: [{ type: 'null' }, { type: 'object' }] },
   },
   required: ['type', 'geometry'],
+};
+
+//-------
+// Exports
+//-------
+module.exports = {
+  Point,
+  FeaturePoint,
+  LineString,
+  FeatureLineString,
 };
