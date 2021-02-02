@@ -1,5 +1,5 @@
 {
-  "name": "@jellyfish-commuting/geojson-schemas",
+  "name": "@jollie/geojson-schemas",
   "description": "GeoJson feature schema for JSON validator",
   "keywords": [
     "geojson",
@@ -33,12 +33,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jellyfish-commuting/geojson-schemas.git"
+    "url": "git://github.com/thejellyfish/geojson-schemas.git"
   },
   "bugs": {
-    "url": "https://github.com/jellyfish-commuting/geojson-schemas/issues"
+    "url": "https://github.com/thejellyfish/geojson-schemas/issues"
   },
-  "homepage": "https://github.com/jellyfish-commuting/geojson-schemas#readme",
+  "homepage": "https://github.com/thejellyfish/geojson-schemas#readme",
   "publishConfig": {
     "access": "public"
   },
